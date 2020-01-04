@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="{{asset('public/assets/bundles/owlcarousel2/dist/assets/owl.theme.default.min.css')}}">
     <link rel="stylesheet" href="{{asset('public/assets/bundles/bootstrap-social/bootstrap-social.css')}}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <style>
         .select2-container--default .select2-selection--single .select2-selection__rendered {
             color: #444;
@@ -34,6 +36,9 @@
         .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
             margin-right: 6px !important;
             color: #f1f0f0 !important;
+        }
+        .fa-c13{
+            font-size: 1.3em;
         }
     </style>
 </head>
@@ -176,11 +181,29 @@
         <!-- Main Content -->
         <div class="main-content">
             <section class="section">
-                @if(Session()->has('success'))
-                    <div class="alert alert-success">{{Session('success')}}</div>
+                @if(Session::has('success'))
+                    <script type="text/javascript">
+                        swal({
+                            title:'Success!',
+                            text:"{{Session::get('success')}}",
+                            timer:5000,
+                            type:'success'
+                        }).then((value) => {
+                            //location.reload();
+                        }).catch(swal.noop);
+                    </script>
                 @endif
-                @if(Session()->has('failed'))
-                    <div class="alert alert-warning">{{Session('failed')}}</div>
+                @if(Session::has('failed'))
+                    <script type="text/javascript">
+                        swal({
+                            title:'Oops!',
+                            text:"{{Session::get('failed')}}",
+                            type:'error',
+                            timer:5000
+                        }).then((value) => {
+                            //location.reload();
+                        }).catch(swal.noop);
+                    </script>
                 @endif
 
                 @yield('content')
@@ -311,6 +334,8 @@
         $(document).ready(function(){
             $('[data-toggle="tooltip"]').tooltip();
         });
+        $('.datatable').dataTable();
+        $('select').select2();
     });
 </script>
 </body>

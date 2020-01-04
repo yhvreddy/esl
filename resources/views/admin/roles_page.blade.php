@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-12 col-md-4 col-lg-4">
             <div class="card">
-                <form method="post" action="{{url('/home/saveSkills')}}">
+                <form method="post" action="{{url('/sa/roles/save')}}">
                     @csrf
                     <div class="card-header">
                         <h4>Add Roles</h4>
@@ -42,11 +42,23 @@
                                 <th class="text-center">#</th>
                                 <th>Role Name</th>
                                 <th>Short Name</th>
+                                <th>Created</th>
                                 <th></th>
                             </tr>
                             </thead>
                             <tbody>
-
+                                @foreach($roles as $key => $role)
+                                    <tr>
+                                        <td>{{$key+1}}</td>
+                                        <td>{{$role->name}}</td>
+                                        <td>{{$role->short_code}}</td>
+                                        <td>{{date('d-m-Y',strtotime($role->created))}}</td>
+                                        <td>
+                                            <a href="#"><i class="fa fa-edit fa-c13"></i></a>&nbsp;&nbsp;
+                                            <a href="#"><i class="fa fa-trash fa-c13"></i></a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

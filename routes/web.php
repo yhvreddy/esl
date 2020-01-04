@@ -19,16 +19,23 @@ Route::get('/sa/dashboard','DashboardController@index');
  * Master Data
  */
 Route::get('/sa/roles','RolesController@roleIndex');
+Route::post('/sa/roles/save','RolesController@roleSaveData');
 
 Route::get('/sa/countries','CountryController@CountriesIndex');
+Route::post('/sa/countries/save','CountryController@CountriesaveData');
 
 Route::get('/sa/states','StatesController@StateIndex');
+Route::post('/sa/states/save','StatesController@StateSaveData');
 
 Route::get('/sa/districts','DistrictsController@DistrictIndex');
+Route::post('/sa/districts/save','DistrictsController@DistrictSave');
+
 
 Route::get('/sa/cities','CityController@CityIndex');
+Route::post('/sa/cities/save','CityController@CitieSave');
 
 Route::get('/sa/locations','LocationsController@LocationIndex');
+Route::post('/sa/locations/save','LocationsController@LocationSave');
 
 Route::get('/sa/accidentypes','AccidentController@AccidentIndex');
 

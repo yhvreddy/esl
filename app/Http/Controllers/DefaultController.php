@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use DB;
 use Session;
+use Illuminate\Support\Facades\Redirect;
 class DefaultController extends Controller
 {
 
@@ -54,6 +55,14 @@ class DefaultController extends Controller
             $pass[] = $alphabet[$n];
         }
         return implode($pass); //turn the array into a string
+    }
+
+    public function success($redirectlink,$message){
+        return Redirect::to($redirectlink)->withSuccess($message);
+    }
+
+    public function failed($redirectlink,$message){
+        return Redirect::to($redirectlink)->withSuccess($message);
     }
 
     public function print_r($data){
