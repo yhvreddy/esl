@@ -62,7 +62,7 @@ class DefaultController extends Controller
     }
 
     public function failed($redirectlink,$message){
-        return Redirect::to($redirectlink)->withSuccess($message);
+        return Redirect::to($redirectlink)->withErrors($message);
     }
 
     public function print_r($data){
