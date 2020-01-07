@@ -3,8 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
-class HomeModel extends Model
+use App\DefaultModel;
+class HomeModel extends DefaultModel
 {
-    //
+
+
+
 }

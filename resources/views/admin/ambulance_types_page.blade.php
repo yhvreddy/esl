@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-12 col-md-4 col-lg-4">
             <div class="card">
-                <form method="post" action="{{url('/home/saveSkills')}}">
+                <form method="post" action="{{url('/sa/ambulance/types/save')}}">
                     @csrf
                     <div class="card-header">
                         <h4>Add Ambulance Type</h4>
@@ -14,7 +14,7 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label>Ambulance Type</label>
-                            <input type="text" class="form-control" required="" name="ambulanceTypeName" placeholder="Add Ambulance Type..">
+                            <input type="text" class="form-control" required="" name="ambulance_type_name" placeholder="Add Ambulance Type..">
                         </div>
                     </div>
                     <div class="card-footer text-right">
@@ -37,11 +37,22 @@
                                 <tr>
                                     <th class="text-center">#</th>
                                     <th>Ambulance Type</th>
+                                    <th>Created</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-
+                                @foreach($ambulanceTypeList as $key => $ambulanceType)
+                                    <tr>
+                                        <td>{{$key+1}}</td>
+                                        <td>{{$ambulanceType->name}}</td>
+                                        <td>{{date('d-m-Y',strtotime($ambulanceType->created))}}</td>
+                                        <td class="text-center">
+                                            <a href="#"><i class="fa fa-edit fa-c13"></i></a>&nbsp;&nbsp;
+                                            <a href="#"><i class="fa fa-trash fa-c13"></i></a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
