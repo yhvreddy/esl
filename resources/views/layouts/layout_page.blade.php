@@ -338,6 +338,35 @@
         $('select').select2();
     });
 </script>
+<script>
+    var xlocationsatus = document.getElementById("locationStatus");
+    /*function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.watchPosition(showPosition);
+        } else {
+            xlocationsatus.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }*/
+    $('#getGeoLocation').click(function(){
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position){
+                console.log(position);
+                $.get( "http://maps.googleapis.com/maps/api/geocode/json?latlng="+ position.coords.latitude + "," + position.coords.longitude +"&sensor=false"+"CA&key=AIzaSyARX8R2S5Ni2YBChp5EvBqo5bdVnXjZXDY", function(data) {
+                    console.log(data);
+                    document.getElementById("locationStatus").innerText = "Successfully Get Location.";
+                    document.getElementById('showGeoLocation').value = position.coords.latitude + "," + position.coords.longitude;
+                })
+
+                /*var img = new Image();
+                img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + position.coords.latitude + "," + position.coords.longitude + "&zoom=13&size=800x400&sensor=false";
+                $('#output').html(img);*/
+            });
+        }
+    });
+
+
+
+</script>
 </body>
 
 </html>

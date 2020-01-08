@@ -14,6 +14,9 @@
 Route::get('/', function () {  return view('welcome'); });
 
 Route::get('/sa/dashboard','DashboardController@index');
+Route::get('/sa/dashboard/hospitals/AddHospital','HospitalsController@AddHospitals');
+Route::get('/sa/dashboard/hospitals/HospitalsList','HospitalsController@HospitalsList');
+Route::get('/sa/dashboard/hospitals/AddHospital/save','HospitalsController@AddHospitalSave');
 
 /*
  * Master Data

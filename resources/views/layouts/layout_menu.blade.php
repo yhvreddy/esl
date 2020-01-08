@@ -12,8 +12,8 @@
             <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i class="fa fa-hospital"></i><span>Hospitals</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="#">Add Hospital</a></li>
-                    <li><a class="nav-link" href="#">Hospital List</a></li>
+                    <li><a class="nav-link" href="{{url('/sa/dashboard/hospitals/AddHospital')}}">Add Hospital</a></li>
+                    <li><a class="nav-link" href="{{url('/sa/dashboard/hospitals/HospitalsList')}}">Hospital List</a></li>
                 </ul>
             </li>
             <li class="dropdown">
