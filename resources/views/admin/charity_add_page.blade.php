@@ -36,10 +36,6 @@
                                 <input type="email" class="form-control" required="" name="hospital_email" placeholder="Enter Mail id..">
                             </div>
                             <div class="col-md-4 col-lg-4 col-sm-12 form-group">
-                                <label>Enter Vehicle id <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" required="" name="hospital_name" placeholder="Enter vehicle id..">
-                            </div>
-                            <div class="col-md-4 col-lg-4 col-sm-12 form-group">
                                 <label>Select Country <span class="text-danger">*</span></label>
                                 <select class="form-control" name="country_id" required="required">
                                     <option value="">Select Country name</option>

@@ -34,17 +34,6 @@ class DefaultController extends Controller
         }
     }
 
-    public function uploadfile($request,$name,$path){
-        if($request->hasfile($name)){
-            $file = $request->file($name);
-            $extension = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extension;
-            $file->move($path,$filename);
-            return $path.'/'.$filename;
-        }else{
-            return 0;
-        }
-    }
 
     function genPassword() {
         $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
@@ -71,4 +60,70 @@ class DefaultController extends Controller
         echo "</pre>";
     }
 
+    //clean string without any special chars
+    public function clean_string($string) {
+        $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
+        return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
+    }
+
+    //getting first litter of each word
+    public function initial_litters($str) {
+        $ret = '';
+        foreach (explode(' ', $str) as $word)
+            @$ret .= strtoupper($word[0]);
+        return $ret;
+    }
+
+    //ramdom number gen--
+    public function generateRandom($min, $max) {
+        if (function_exists('random_int')):
+            return random_int($min, $max); // more secure
+        elseif (function_exists('mt_rand')):
+            return mt_rand($min, $max); // faster
+        endif;
+        return rand($min, $max); // old
+    }
+
+    //ramdom char---
+    public function random_string($length) {
+        $key = '';
+        $keys = array_merge(range('A', 'Z'));
+        for ($i = 0; $i < $length; $i++) {
+            $key .= $keys[array_rand($keys)];
+        }
+        return $key;
+    }
+
+    //generate letters A-Z
+    public function generate_letters($totallength){
+        $len = -1;
+        $length = '';
+        for ($char = 'A'; $char <= 'Z'; $char++) {
+            $len++;
+            if ($len == $totallength) {
+                break;
+            }
+            $length .= $char.',';
+        }
+        return json_encode(trim($length,','));
+    }
+
+    //Two Dates and time differences
+    public function days_ago($startingdate = NULL,$endingdate = NULL){
+        $date1 = date_create($startingdate);
+        $date2 = date_create($endingdate);
+        //difference between two dates
+        $diff = date_diff($date1,$date2);
+        $text       = 'The difference is ';
+        $year       =  $diff->y;
+        $month      =  $diff->m;
+        $days       =  $diff->d;
+        $hours      =  $diff->h;
+        $minutes    =  $diff->i;
+        $secound    =  $diff->s;
+        $daysdiff   =  $diff->format("%a");
+        return $data = array('text'=>$text,'year'=>$year,'month'=>$month,'days'=>$days,'hours'=>$hours,'min'=>$minutes,'sec'=>$secound,'diff'=>$daysdiff);
+        //count days
+        //echo 'Days Count - '.$diff->format("%a");
+    }
 }

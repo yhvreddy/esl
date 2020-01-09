@@ -19,25 +19,25 @@
             <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i class="fa fa-ambulance"></i><span>Ambulance</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="#">Add Ambulance</a></li>
-                    <li><a class="nav-link" href="#">Ambulance List</a></li>
+                    <li><a class="nav-link" href="{{url('/sa/dashboard/ambulance/AddAmbulance')}}">Add Ambulance</a></li>
+                    <li><a class="nav-link" href="{{url('/sa/dashboard/ambulance/AmbulanceList')}}">Ambulance List</a></li>
                 </ul>
             </li>
             <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i class="fa fa-hospital"></i><span>Blood Banks</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="#">Add Blood Bank</a></li>
-                    <li><a class="nav-link" href="#">Blood Bank List</a></li>
+                    <li><a class="nav-link" href="{{url('/sa/dashboard/bloodbank/AddBloodBank')}}">Add Blood Bank</a></li>
+                    <li><a class="nav-link" href="{{url('/sa/dashboard/bloodbank/BloodBankList')}}">Blood Bank List</a></li>
                 </ul>
             </li>
             <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i class="fa fa-home"></i><span>Charity</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="#">Add Charity</a></li>
-                    <li><a class="nav-link" href="#">Charity List</a></li>
+                    <li><a class="nav-link" href="{{url('/sa/dashboard/charity/AddCharity')}}">Add Charity</a></li>
+                    <li><a class="nav-link" href="{{url('/sa/dashboard/charity/CharityLists')}}">Charity List</a></li>
                 </ul>
             </li>
-            <li class="dropdown">
+            <!--<li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i class="fa fa-newspaper"></i><span>Post's</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="#">Categories</a></li>
@@ -45,7 +45,7 @@
                     <li><a class="nav-link" href="#">Add Post</a></li>
                     <li><a class="nav-link" href="#">Post List</a></li>
                 </ul>
-            </li>
+            </li>-->
             <li class="menu-header">Master Data</li>
             <li class="dropdown">
                 <a href="{{url('/sa/roles')}}" class="nav-link"><i class="fa fa-list"></i><span>Roles</span></a>

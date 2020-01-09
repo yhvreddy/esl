@@ -14,9 +14,20 @@
 Route::get('/', function () {  return view('welcome'); });
 
 Route::get('/sa/dashboard','DashboardController@index');
+
 Route::get('/sa/dashboard/hospitals/AddHospital','HospitalsController@AddHospitals');
 Route::get('/sa/dashboard/hospitals/HospitalsList','HospitalsController@HospitalsList');
-Route::get('/sa/dashboard/hospitals/AddHospital/save','HospitalsController@AddHospitalSave');
+Route::post('/sa/dashboard/hospitals/AddHospital/save','HospitalsController@AddHospitalSave');
+
+Route::get('/sa/dashboard/ambulance/AddAmbulance','AmbulanceController@AddAmbulances');
+Route::get('/sa/dashboard/ambulance/AmbulanceList','AmbulanceController@AmbulancesList');
+Route::get('/sa/dashboard/ambulance/AddAmbulance/save','AmbulanceController@AddAmbulanceSave');
+
+Route::get('/sa/dashboard/bloodbank/AddBloodBank','BloodBanksController@AddBloodBank');
+Route::get('/sa/dashboard/bloodbank/BloodBankList','BloodBanksController@BloodBanksList');
+
+Route::get('/sa/dashboard/charity/AddCharity','CharityController@AddCharity');
+Route::get('/sa/dashboard/charity/CharityLists','CharityController@CharityLists');
 
 /*
  * Master Data

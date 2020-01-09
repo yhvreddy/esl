@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\LocationsModel;
 use Illuminate\Http\Request;
 use App\CharityModel;
 use App\Http\Controllers\DefaultController;
@@ -11,6 +12,7 @@ class CharityController extends DefaultController
     public function __construct()
     {
         $this->charity = new CharityModel;
+        $this->location = new LocationsModel;
     }
 
     public function CharityTypesIndex(){
@@ -41,6 +43,20 @@ class CharityController extends DefaultController
         }else{
             return $this->failed('/sa/charity/donationtypes','Donation Type as failed to save.');
         }
+    }
+
+    public function AddCharity()
+    {
+        $countries  =   $this->location->countriesList();
+        $states     =   $this->location->StatesList();
+        $districts  =   $this->location->DistrictsList();
+        $cities     =   $this->location->CitiesList();
+        return view('admin.charity_add_page',compact('countries','states','districts','cities'));
+    }
+
+    public function CharityLists()
+    {
+        return view('admin.charity_list_page');
     }
 
 }
