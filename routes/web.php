@@ -21,7 +21,7 @@ Route::post('/sa/dashboard/hospitals/AddHospital/save','HospitalsController@AddH
 
 Route::get('/sa/dashboard/ambulance/AddAmbulance','AmbulanceController@AddAmbulances');
 Route::get('/sa/dashboard/ambulance/AmbulanceList','AmbulanceController@AmbulancesList');
-Route::get('/sa/dashboard/ambulance/AddAmbulance/save','AmbulanceController@AddAmbulanceSave');
+Route::post('/sa/dashboard/ambulance/AddAmbulance/save','AmbulanceController@AddAmbulanceSave');
 
 Route::get('/sa/dashboard/bloodbank/AddBloodBank','BloodBanksController@AddBloodBank');
 Route::get('/sa/dashboard/bloodbank/BloodBankList','BloodBanksController@BloodBanksList');

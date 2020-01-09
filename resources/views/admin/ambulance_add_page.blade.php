@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-12 col-md-12 col-lg-12">
             <div class="card">
-                <form method="post" action="{{url('/sa/dashboard/hospitals/AddHospital/save')}}">
+                <form method="post" action="{{url('/sa/dashboard/ambulance/AddAmbulance/save')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="card-header">
                         <h4>Add Ambulance</h4>
@@ -15,29 +15,32 @@
                         <div class="row">
                             <div class="col-md-4 col-lg-4 col-sm-12 form-group">
                                 <label>Enter Ambulance Name <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" required="" name="hospital_name" placeholder="Enter Hospital Name..">
+                                <input type="text" class="form-control" required="" name="ambulance_name" placeholder="Enter Ambulance / Hospital Name ">
                             </div>
                             <div class="col-md-4 col-lg-4 col-sm-12 form-group">
                                 <label>Select Ambulance Type <span class="text-danger">*</span></label>
-                                <select class="form-control" name="country_id" required="required">
+                                <select class="form-control" name="ambulance_type_id" required="required">
                                     <option value="">Select Ambulance Type</option>
+                                    @foreach($ambulancetypes as $ambulancetype)
+                                        <option value="{{$ambulancetype->id}}"> {{$ambulancetype->name}} </option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-md-4 col-lg-4 col-sm-12 form-group">
                                 <label>Enter Mobile Number<span class="text-danger">*</span></label>
-                                <input type="tel" class="form-control" maxlength="10" required="" name="mobile_number" placeholder="Mobile Number..">
+                                <input type="tel" class="form-control" min="10" maxlength="10" required="" name="ambulance_mobile_number" placeholder="Ambulance / Hospital Mobile Number">
                             </div>
                             <div class="col-md-4 col-lg-4 col-sm-12 form-group">
                                 <label>Enter Phone Number</label>
-                                <input type="text" class="form-control" name="phone_number" placeholder="Phone Number..">
+                                <input type="text" class="form-control" name="ambulance_phone_number" placeholder="Ambulance / Hospital Phone Number">
                             </div>
                             <div class="col-md-4 col-lg-4 col-sm-12 form-group">
-                                <label>Enter Mail Id <span class="text-danger">*</span></label>
-                                <input type="email" class="form-control" required="" name="hospital_email" placeholder="Enter Mail id..">
+                                <label>Enter Mail Id </label>
+                                <input type="email" class="form-control" name="ambulance_email" placeholder="Ambulance / Hospital Enter Mail id..">
                             </div>
                             <div class="col-md-4 col-lg-4 col-sm-12 form-group">
                                 <label>Enter Vehicle id <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" required="" name="hospital_name" placeholder="Enter vehicle id..">
+                                <input type="text" class="form-control" required="" name="ambulance_reg_vehicle_id" placeholder="Ambulance Vehicle Number..">
                             </div>
                             <div class="col-md-4 col-lg-4 col-sm-12 form-group">
                                 <label>Select Country <span class="text-danger">*</span></label>
@@ -91,12 +94,18 @@
                                         <button class="btn btn-primary" id="getGeoLocation" type="button"> <i class="fa fa-location-arrow"></i> Location</button>
                                     </div>
                                 </div>
-
+                            </div>
+                            <div class="col-md-4 col-lg-4 col-sm-12">
+                                <label>Upload Ambulance Image </label>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="ambulance_image" id="customFile" accept=".jpg,.png,.jpeg">
+                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="card-footer text-right">
-                        <button class="btn btn-primary" type="submit">Save Hospital Details</button>
+                        <button class="btn btn-primary" type="submit">Save Ambulance Details</button>
                     </div>
                 </form>
             </div>

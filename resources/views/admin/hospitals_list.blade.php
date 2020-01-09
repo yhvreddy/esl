@@ -24,7 +24,7 @@
                                     <th>Phone Num</th>
                                     <th>Email id</th>
                                     <th>Created</th>
-                                    <th></th>
+                                    <th> </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -45,6 +45,13 @@
                                         <td>{{$hospital->mail_id}}</td>
                                         <td>{{date('d-m-Y',strtotime($hospital->created))}}</td>
                                         <td>
+                                            @if($hospital->verified == 0)
+                                                <a href="#" class="text-warning" title="Not Verified" data-toggle="tooltip"><i class="fa fa-frown-o fa-c13" aria-hidden="true"></i></a>&nbsp;&nbsp;
+                                            @elseif($hospital->verified == 2)
+                                                <a href="#" class="text-danger" title="Deactivated" data-toggle="tooltip"><i class="fa fa-ban fa-c13" aria-hidden="true"></i></a>&nbsp;&nbsp;
+                                            @else
+                                                <a href="#" class="text-success" title="Active" data-toggle="tooltip"><i class="fa fa-smile-o fa-c13" aria-hidden="true"></i></a>&nbsp;&nbsp;
+                                            @endif
                                             <a href="#"><i class="fa fa-edit fa-c13"></i></a>&nbsp;&nbsp;
                                             <a href="#"><i class="fa fa-trash fa-c13"></i></a>
                                         </td>
