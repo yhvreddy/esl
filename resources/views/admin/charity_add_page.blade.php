@@ -1,26 +1,29 @@
 @extends('layouts.layout_page')
-@section('title_name', 'Add Hospital')
+@section('title_name', 'Add Charity Details')
 
 @section('content')
 
     <div class="row">
         <div class="col-12 col-md-12 col-lg-12">
             <div class="card">
-                <form method="post" action="{{url('/sa/dashboard/hospitals/AddHospital/save')}}">
+                <form method="post" action="{{url('/sa/dashboard/charity/save')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="card-header">
-                        <h4>Add Ambulance</h4>
+                        <h4>Add Charity Details</h4>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-4 col-lg-4 col-sm-12 form-group">
-                                <label>Enter Ambulance Name <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" required="" name="hospital_name" placeholder="Enter Hospital Name..">
+                                <label>Enter Charity Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" required="" name="charity_name" placeholder="Enter Charity Name..">
                             </div>
                             <div class="col-md-4 col-lg-4 col-sm-12 form-group">
-                                <label>Select Ambulance Type <span class="text-danger">*</span></label>
-                                <select class="form-control" name="country_id" required="required">
-                                    <option value="">Select Ambulance Type</option>
+                                <label>Select Charity Type <span class="text-danger">*</span></label>
+                                <select class="form-control" name="Charity_type" required="required">
+                                    <option value="">Select Charity Type</option>
+                                    @foreach($chariTypes as $chariType)
+                                        <option value="{{$chariType->id}}">{{$chariType->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-md-4 col-lg-4 col-sm-12 form-group">
@@ -87,12 +90,18 @@
                                         <button class="btn btn-primary" id="getGeoLocation" type="button"> <i class="fa fa-location-arrow"></i> Location</button>
                                     </div>
                                 </div>
-
+                            </div>
+                            <div class="col-md-4 col-lg-4 col-sm-12">
+                                <label>Upload Charity Image </label>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="charity_image" id="customFile" accept=".jpg,.png,.jpeg">
+                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="card-footer text-right">
-                        <button class="btn btn-primary" type="submit">Save Hospital Details</button>
+                        <button class="btn btn-primary" type="submit">Save Charity Details</button>
                     </div>
                 </form>
             </div>

@@ -6,16 +6,16 @@
     <div class="row">
         <div class="col-12 col-md-12 col-lg-12">
             <div class="card">
-                <form method="post" action="{{url('/sa/dashboard/hospitals/AddHospital/save')}}">
+                <form method="post" action="{{url('/sa/dashboard/bloodbank/save')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="card-header">
-                        <h4>Add Hospitals</h4>
+                        <h4>Add Blood Bank</h4>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-4 col-lg-4 col-sm-12 form-group">
-                                <label>Enter Hospital Name <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" required="" name="hospital_name" placeholder="Enter Hospital Name..">
+                                <label>Enter Blood Bank Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" required="" name="bloodBank_name" placeholder="Enter Blood Bank Name">
                             </div>
                             <div class="col-md-4 col-lg-4 col-sm-12 form-group">
                                 <label>Enter Mobile Number<span class="text-danger">*</span></label>
@@ -27,7 +27,7 @@
                             </div>
                             <div class="col-md-4 col-lg-4 col-sm-12 form-group">
                                 <label>Enter Mail Id <span class="text-danger">*</span></label>
-                                <input type="email" class="form-control" required="" name="hospital_email" placeholder="Enter Mail id..">
+                                <input type="email" class="form-control" required="" name="mail_id" placeholder="Enter Mail id..">
                             </div>
                             <div class="col-md-4 col-lg-4 col-sm-12 form-group">
                                 <label>Select Country <span class="text-danger">*</span></label>
@@ -81,12 +81,18 @@
                                         <button class="btn btn-primary" id="getGeoLocation" type="button"> <i class="fa fa-location-arrow"></i> Location</button>
                                     </div>
                                 </div>
-
+                            </div>
+                            <div class="col-md-4 col-lg-4 col-sm-12">
+                                <label>Upload Blood Bank Image </label>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="bloodBank_image" id="customFile" accept=".jpg,.png,.jpeg">
+                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="card-footer text-right">
-                        <button class="btn btn-primary" type="submit">Save Hospital Details</button>
+                        <button class="btn btn-primary" type="submit">Save Blood Bank Details</button>
                     </div>
                 </form>
             </div>

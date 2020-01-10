@@ -25,9 +25,11 @@ Route::post('/sa/dashboard/ambulance/AddAmbulance/save','AmbulanceController@Add
 
 Route::get('/sa/dashboard/bloodbank/AddBloodBank','BloodBanksController@AddBloodBank');
 Route::get('/sa/dashboard/bloodbank/BloodBankList','BloodBanksController@BloodBanksList');
+Route::post('/sa/dashboard/bloodbank/save','BloodBanksController@BloodBankSave');
 
 Route::get('/sa/dashboard/charity/AddCharity','CharityController@AddCharity');
 Route::get('/sa/dashboard/charity/CharityLists','CharityController@CharityLists');
+Route::post('/sa/dashboard/charity/save','CharityController@CharitySave');
 
 /*
  * Master Data

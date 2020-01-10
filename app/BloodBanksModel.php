@@ -19,4 +19,14 @@ class BloodBanksModel extends DefaultModel
         return $insert;
     }
 
+    public function BloodBankSave($savedata)
+    {
+        $insertdata = $this->insert_data('esl_blood_banks',$savedata);
+        return $insertdata;
+    }
+
+    public function BloodBanksList()
+    {
+        return $this->select_data('esl_blood_banks','*',array('status'=>1));
+    }
 }
