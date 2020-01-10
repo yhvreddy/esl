@@ -7,6 +7,7 @@ use App\DefaultModel;
 use DB;
 class HospitalsModel extends DefaultModel
 {
+
     public function saveHospitaltypes($request)
     {
         $savedata = array('name'=>$request->hospital_type_name);

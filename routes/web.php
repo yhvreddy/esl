@@ -34,6 +34,7 @@ Route::post('/sa/dashboard/charity/save','CharityController@CharitySave');
 /*
  * Master Data
  */
+
 Route::get('/sa/roles','RolesController@roleIndex');
 Route::post('/sa/roles/save','RolesController@roleSaveData');
 
