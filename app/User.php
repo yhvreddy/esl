@@ -6,10 +6,10 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
-
+use Illuminate\Http\Request;
 class User extends Authenticatable implements MustVerifyEmail
 {
-    protected $table = 'esl_admin_users';
+    protected $table = 'esl_users';
 
     use HasApiTokens, Notifiable;
 
@@ -19,7 +19,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'user_role'
+        'first_name', 'last_name', 'mobile',  'mail_id', 'password', 'user_type', 'blood_group'
     ];
 
     /**
@@ -38,5 +38,10 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+    ];
+
+    //default value
+    protected $attributes = [
+        'ip_address' => '',
     ];
 }

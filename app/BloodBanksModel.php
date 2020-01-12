@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\DefaultModel;
+use DB;
 class BloodBanksModel extends DefaultModel
 {
 
@@ -28,5 +29,10 @@ class BloodBanksModel extends DefaultModel
     public function BloodBanksList()
     {
         return $this->select_data('esl_blood_banks','*',array('status'=>1));
+    }
+
+    public function bloodbanksdetails($id)
+    {
+        return $this->select_data('esl_blood_banks','*',array('status'=>1,'id'=>$id));
     }
 }

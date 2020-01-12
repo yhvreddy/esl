@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\apis;
+namespace App\Http\Controllers\Apis;
 
 use App\Http\Controllers\Controller;
-use App\LocationsModel;
 use Illuminate\Http\Request;
-use App\Http\Controllers\apis\BaseController;
 use App\HospitalsModel;
+use App\LocationsModel;
+use App\Http\Controllers\Apis\BaseController;
 use Validator;
-
-
 class HospitalController extends BaseController
 {
 
@@ -25,10 +23,11 @@ class HospitalController extends BaseController
         return $this->sendResponse($hospitals, 'Hospitals List.');
     }
 
-    public function hospitalsList()
+    public function hosptaldetails(Request $request)
     {
-        //$user = Auth::user();
-        $hospitals = $this->hospital->hospitalDataList();
-        return $this->sendResponse($hospitals, 'Hospitals List.');
+        $id = $request->hospital_id;
+        $hospitals = $this->hospital->hospitalDetails($id);
+        return $this->sendResponse($hospitals, 'Hospital Details.');
     }
+
 }
