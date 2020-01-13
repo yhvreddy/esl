@@ -28,4 +28,16 @@ class CharityController extends BaseController
         $charity = $this->charity->charitydetails($id);
         return $this->sendResponse($charity, 'charity Details.');
     }
+
+    public function charityTypes()
+    {
+        $charityTypes = $this->charity->charityTypesList();
+        return $this->sendResponse($charityTypes, 'charity Types.');
+    }
+    
+    public function donationTypes()
+    {
+        $donationTypesList = $this->charity->donationTypesList();
+        return $this->sendResponse($donationTypesList, 'Donations Types.');
+    }
 }

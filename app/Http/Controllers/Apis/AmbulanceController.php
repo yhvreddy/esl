@@ -29,4 +29,10 @@ class AmbulanceController extends BaseController
         $ambulances = $this->ambulance->ambulanceDetails($id);
         return $this->sendResponse($ambulances, 'Hospital Details.');
     }
+
+    public function ambulancesTypes()
+    {
+        $ambulancesTypes = $this->ambulance->ambulanceTypesList();
+        return $this->sendResponse($ambulancesTypes, 'Ambulance Types.');
+    }
 }

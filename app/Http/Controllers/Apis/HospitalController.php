@@ -30,4 +30,16 @@ class HospitalController extends BaseController
         return $this->sendResponse($hospitals, 'Hospital Details.');
     }
 
+    public function hospitalTypes()
+    {
+        $hospitaltypes = $this->hospital->hostpitalTypeList();
+        return $this->sendResponse($hospitaltypes,'Hospital Types');
+    }
+
+    public function hospitalSpecializations()
+    {
+        $hospitalspls = $this->hospital->HospitalSpecializationList();
+        return $this->sendResponse($hospitalspls,'Hospital Specializations');
+    }
+
 }

@@ -53,9 +53,13 @@ Route::middleware('auth:api')->group( function () {
     //Accident
     Route::get('accidents/types','Apis\AccidentController@AccedentType');
     //Donation
-
+    Route::get('donations/types','Apis\CharityController@donationTypes');
+    //Charities
+    Route::get('charity/types','Apis\CharityController@charityTypes');
     //Hospitals
-
+    Route::get('hospitals/types','Apis\HospitalController@hospitalTypes');
+    Route::get('hospitals/specializations','Apis\HospitalController@hospitalSpecializations');
     //Ambulances
+    Route::get('ambulances/types','Apis\AmbulanceController@ambulancesTypes');
 
 });
